@@ -10,7 +10,7 @@ function Utterances() {
         const scriptElem = document.createElement('script')
         scriptElem.src = 'https://utteranc.es/client.js'
         scriptElem.async = true
-        scriptElem.setAttribute('repo', 'happyGGang/next-study')
+        scriptElem.setAttribute('repo', 'happyGGang/oh-my-gganglog')
         scriptElem.setAttribute('issue-term', 'pathname')
         scriptElem.setAttribute('theme', 'github-light')
         scriptElem.crossOrigin = 'anonymous'
