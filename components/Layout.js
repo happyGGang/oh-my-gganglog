@@ -6,8 +6,8 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import Utterances from './Utterances'
 
-const name = '✨GGANG✨'
-export const siteTitle = 'gganglog'
+const name = 'CHOI JEEMIN'
+export const siteTitle = 'TECH BLOG'
 
 export default function Layout({ children, home }) {
   const [theme, setTheme] = useState(() =>
@@ -26,7 +26,7 @@ export default function Layout({ children, home }) {
     }
   }, [theme])
 
-  const toggleTheme = () => {
+  const handleClick = () => {
     const theme = localStorage.getItem('theme')
     if (theme === 'dark') {
       localStorage.setItem('theme', 'light')
@@ -36,8 +36,9 @@ export default function Layout({ children, home }) {
       setTheme('dark')
     }
   }
+
   return (
-    <div className="bg-pink-50 dark:bg-black text-gray-800 dark:text-gray-200 h-full">
+    <div className="bg-pink-50 dark:bg-black text-gray-800 dark:text-gray-200 h-screen">
       <div className={styles.container}>
         <Head>
           <link rel="icon" href="/favicon.ico" />
@@ -54,26 +55,15 @@ export default function Layout({ children, home }) {
           <meta name="og:title" content={siteTitle} />
           <meta name="twitter:card" content="summary_large_image" />
         </Head>
-        <div className="flex">
-          <button type="button" className="w-12 px-2" onClick={toggleTheme}>
-            {theme === 'dark' ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img src="/dark-mode.svg" alt="dark-mode" />
-            ) : (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img src="/light-mode.svg" alt="light-mode" />
-            )}
-          </button>
-          <button type="button" className="w-12 px-2">
-            {theme === 'dark' ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img src="/dark-github.svg" alt="dark-mode" />
-            ) : (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img src="/light-github.svg" alt="light-mode" />
-            )}
-          </button>
-        </div>
+        <button className="w-12 px-2" onClick={handleClick}>
+          {theme === 'dark' ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src="/light-mode.svg" alt="light" />
+          ) : (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src="/dark-mode.svg" alt="dark" />
+          )}
+        </button>
         <header className={styles.header}>
           {home ? (
             <>
@@ -89,7 +79,7 @@ export default function Layout({ children, home }) {
             </>
           ) : (
             <>
-              <Link href="/" legacyBehavior>
+              <Link href="/">
                 <a>
                   <Image
                     priority
