@@ -8,13 +8,6 @@ import CodeBlock from '../../components/CodeBlock'
 
 export async function getStaticPaths() {
   const paths = getAllPostIds()
-  // const paths = [
-  //   {
-  //     params: {
-  //       id: 'ssg-ssr',
-  //     },
-  //   },
-  // ]
   return {
     paths,
     fallback: true,
@@ -51,18 +44,20 @@ export default function Post({ postData }) {
   return (
     <Layout>
       <article>
-        <div style={{ padding: '1.5rem 0' }}>
-          <h1>{postData.title}</h1>
+        <div className="py-2">
+          <h1 style={{ fontSize: '1.3rem', fontWeight: '700' }}>
+            {postData.title}
+          </h1>
           <div style={{ fontSize: '0.8rem', color: '#747474' }}>
             <Date dateString={postData.date} />
           </div>
         </div>
 
-        <hr />
+        <div style={{ borderBottom: '1px solid #e9e9e9' }} />
 
         <div
           style={{
-            padding: '1.5rem 0',
+            padding: '1rem 0',
             borderBottom: '1px solid #e9e9e9',
             minHeight: '15rem',
           }}
