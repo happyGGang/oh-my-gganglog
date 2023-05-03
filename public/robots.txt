@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://vercel-blog-wwjf.vercel.app
+Host: https://oh-my-gganglog.vercel.app
 
 # Sitemaps
-Sitemap: https://vercel-blog-wwjf.vercel.app/sitemap.xml
+Sitemap: https://oh-my-gganglog.vercel.app/sitemap.xml
