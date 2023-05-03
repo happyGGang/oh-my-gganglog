@@ -1,15 +1,55 @@
-.container {
-  max-width: 36rem;
-  padding: 3rem 1rem;
-  margin: 0 auto 6rem;
-}
-
 .header {
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 2rem;
+  position: relative;
+}
+
+.profileContainer {
+  position: relative;
+  background: linear-gradient(70deg, rgb(255, 212, 171), rgb(255, 185, 196));
+  margin: 0 2rem;
+  border-radius: 1rem;
+  padding: 6rem;
+  text-align: center;
+}
+
+.profile {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 120%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.profileImg {
+  /* border */
+  width: 144px;
+  height: 144px;
+  border: 3px solid rgb(235, 128, 52);
+  border-radius: 50%;
+}
+
+.container {
+  max-width: 40rem;
+  padding: 1rem 1rem;
+  margin: 10rem auto 6rem;
 }
 
 .backToHome {
+  color: rgb(229, 112, 22);
+  font-weight: 700;
   margin: 3rem 0 0;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.6rem 0;
+  color: rgb(60, 60, 60);
+  font-size: 0.5rem;
 }

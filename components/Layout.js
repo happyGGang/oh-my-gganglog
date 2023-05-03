@@ -1,13 +1,13 @@
 import Head from 'next/head'
-import Image from 'next/image'
+// import Image from 'next/image'
 import styles from './layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import Utterances from './Utterances'
 
-const name = 'CHOI JEEMIN'
-export const siteTitle = 'TECH BLOG'
+const name = '✨gganglog✨'
+export const siteTitle = 'gganglog'
 
 export default function Layout({ children, home }) {
   const [theme, setTheme] = useState(() =>
@@ -38,8 +38,8 @@ export default function Layout({ children, home }) {
   }
 
   return (
-    <div className="bg-pink-50 dark:bg-black text-gray-800 dark:text-gray-200 h-screen">
-      <div className={styles.container}>
+    <div className="bg-orange-50 dark:bg-black text-gray-800 dark:text-gray-200">
+      <header className={styles.headerContainer}>
         <Head>
           <link rel="icon" href="/favicon.ico" />
           <meta
@@ -55,62 +55,62 @@ export default function Layout({ children, home }) {
           <meta name="og:title" content={siteTitle} />
           <meta name="twitter:card" content="summary_large_image" />
         </Head>
-        <button className="w-12 px-2" onClick={handleClick}>
-          {theme === 'dark' ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img src="/light-mode.svg" alt="light" />
-          ) : (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img src="/dark-mode.svg" alt="dark" />
-          )}
-        </button>
-        <header className={styles.header}>
-          {home ? (
-            <>
-              <Image
-                priority
-                src="/images/profile.jpeg"
-                className={utilStyles.borderCircle}
-                height={144}
-                width={144}
-                alt={name}
-              />
-              <h1 className={utilStyles.heading2Xl}>{name}</h1>
-            </>
-          ) : (
-            <>
-              <Link href="/">
-                <a>
-                  <Image
-                    priority
-                    src="/images/profile.jpeg"
-                    className={utilStyles.borderCircle}
-                    height={108}
-                    width={108}
-                    alt={name}
-                  />
-                </a>
-              </Link>
-              <h2 className={utilStyles.headingLg}>
-                <Link href="/" legacyBehavior>
-                  <a className={utilStyles.colorInherit}>{name}</a>
-                </Link>
-              </h2>
-            </>
-          )}
-        </header>
+        <div className="px-5 py-2 flex justify-end">
+          <button className="w-12 px-2" onClick={handleClick}>
+            {theme === 'dark' ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src="/light-mode.svg" alt="light" />
+            ) : (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src="/dark-mode.svg" alt="dark" />
+            )}
+          </button>
+        </div>
+
+        <div className={styles.profileContainer}>
+          <div className={styles.profile}>
+            {home ? (
+              <>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/profile.jpeg"
+                  className={styles.profileImg}
+                  alt={name}
+                />
+                <h1 className={utilStyles.heading2Xl}>{name}</h1>
+              </>
+            ) : (
+              <>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/profile.jpeg"
+                  className={styles.profileImg}
+                  alt={name}
+                />
+                <h2 className={utilStyles.headingLg}>
+                  <Link href="/" legacyBehavior>
+                    <a className={utilStyles.colorInherit}>{name}</a>
+                  </Link>
+                </h2>
+              </>
+            )}
+          </div>
+        </div>
+      </header>
+      <div className={styles.container}>
         <main>{children}</main>
         {!home && (
           <>
             <Utterances />
-            <div className={styles.backToHome}>
+            <div>
               <Link href="/" legacyBehavior>
-                <a>← Back to home</a>
+                <a className={styles.backToHome}>← Back to home</a>
               </Link>
             </div>
           </>
         )}
       </div>
+      <footer className={styles.footer}>©happyGGang</footer>
     </div>
   )
 }

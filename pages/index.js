@@ -16,45 +16,27 @@ export async function getStaticProps() {
   }
 }
 
-// export async function getServerSideProps() {
-//   const response = await fetch('http://localhost:3000/api/posts')
-//   const json = await response.json()
-
-//   return {
-//     props: {
-//       allPostsData: json.allPostsData,
-//     },
-//   }
-// }
-
 export default function Home({ allPostsData }) {
-  // const [allPostsData, setAllPostsData] = useState([])
-  // useEffect(() => {
-  //   fetch('/api/posts')
-  //     .then((res) => res.json())
-  //     .then((data) => setAllPostsData(data.allPostsData))
-  // }, [])
   return (
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={utilStyles.headingMd}>
-        <p>I love coding 😍</p>
-        <p>
-          (This is a sample website - you’ll be building a site like this on{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
+      <section>
+        <p className="text-sm">갱로그의 갱! 갱입니다</p>
+        <p className="text-sm">갱로그의 갱! 갱입니다</p>
+        <p className="text-sm">갱로그의 갱! 갱입니다</p>
       </section>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
+
+      <section className="my-10">
+        <h2 className={utilStyles.headingLg}>Recent posts</h2>
+        <hr />
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>
               <Link href={`/posts/${id}`} legacyBehavior>
                 <a>{title}</a>
               </Link>
-              <br />
               <small className={utilStyles.lightText}>
                 <Date dateString={date} />
               </small>

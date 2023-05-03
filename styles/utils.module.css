@@ -40,8 +40,7 @@
 
 .list {
   list-style: none;
-  padding: 0;
-  margin: 0;
+  padding: 1.2rem 0;
 }
 
 .listItem {
@@ -56,9 +55,13 @@
 .listItem a {
   font-weight: 700;
   color: rgb(231, 117, 117);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  display: block;
 }
 
 .lightText {
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   color: #666;
 }
